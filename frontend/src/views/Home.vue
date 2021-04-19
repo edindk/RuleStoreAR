@@ -1,18 +1,41 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="row">
+    <div class="col-md-3">test</div>
+    <div class="col-md-6">
+      <div class="col-md-2" v-for="product in products "><p>{{ product.type }} - {{ product.itemNumber }} -
+        {{ product.model }} - {{ product.height }}
+        - {{ product.depth }} - {{ product.width }} - {{ product.outletHeight }} - {{ product.volume }} -
+        {{ product.contents }} - {{ product.bottomConeSlope }}
+        - {{ product.supplyAir }} - {{ product.price }}
+      </p></div>
+    </div>
+    <div class="col-md-3">test</div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+//import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    //HelloWorld
+  },
+  data() {
+    return {
+      products: null
+    }
+  },
+  created() {
+    this.getProducts()
+  },
+  methods: {
+    async getProducts() {
+      const response = await this.$store.dispatch('getProducts')
+      this.products = response.data
+    },
+
   }
 }
 </script>
