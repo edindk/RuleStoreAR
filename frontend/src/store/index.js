@@ -11,7 +11,7 @@ export default new Vuex.Store({
     },
     mutations: {},
     actions: {
-        getProducts(context, data) {
+        getProducts() {
             return new Promise((resolve, reject) => {
                 axios
                     .get('/products')
