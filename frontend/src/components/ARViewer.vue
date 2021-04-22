@@ -1,13 +1,15 @@
 <template>
-  <div class="row">
+  <div class="arviewer">
     <model-viewer id="modelViewer" v-bind:src="glbPath"
                   alt="A 3D model of an astronaut"
                   auto-rotate
-                  camera-controls ar v-bind:ios-src="usdzPath" ar-scale="fixed"></model-viewer>
+                  camera-controls ar v-bind:ios-src="usdzPath" ar-scale="fixed">
+
+    </model-viewer>
   </div>
 </template>
 
-<script type="module">
+<script>
 import ModelViewer from '@google/model-viewer'
 
 export default {

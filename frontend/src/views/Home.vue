@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="col-md-3">test</div>
+    <div class="col-md-3"><p>test</p></div>
     <div class="col-md-6">
       <div class="col-md-2" v-for="product in products "><p>{{ product.type }} - {{ product.itemNumber }} -
         {{ product.model }} - {{ product.height }}
@@ -9,7 +9,7 @@
         - {{ product.supplyAir }} - {{ product.price }}
       </p></div>
     </div>
-    <div class="col-md-3">test</div>
+    <div class="col-md-3"><h1>test</h1></div>
   </div>
 </template>
 

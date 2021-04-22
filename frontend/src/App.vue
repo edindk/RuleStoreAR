@@ -1,12 +1,19 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/arviewer">ARViewer</router-link>
-    </div>
-    <router-view/>
+    <master></master>
   </div>
 </template>
+
+<script>
+import Master from './components/Master'
+
+export default {
+  name: "App",
+  components: {
+    Master
+  },
+}
+</script>
 
 <style>
 #app {
