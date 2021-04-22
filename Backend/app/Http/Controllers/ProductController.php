@@ -11,4 +11,16 @@ class ProductController extends Controller
     {
         return Product::all();
     }
+
+    function getGlb()
+    {
+        $glbPath = 'storage/scaleTest.glb';
+        return response()->file($glbPath);
+    }
+
+    function getUsdz()
+    {
+        $usdzFile = 'storage/scaleTest.usdz';
+        return response()->download($usdzFile);
+    }
 }
