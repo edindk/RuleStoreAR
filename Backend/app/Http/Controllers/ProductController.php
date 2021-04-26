@@ -12,15 +12,16 @@ class ProductController extends Controller
         return Product::all();
     }
 
-    function getGlb()
+    function getGlb($productId)
     {
-        $glbPath = 'storage/scaleTest.glb';
+        $productId;
+        $glbPath = 'storage/scaleTest' . $productId . '.glb';
         return response()->file($glbPath);
     }
 
-    function getUsdz()
+    function getUsdz($productId)
     {
-        $usdzFile = 'storage/scaleTest.usdz';
+        $usdzFile = 'storage/scaleTest' . $productId . '.usdz';
         return response()->download($usdzFile);
     }
 }

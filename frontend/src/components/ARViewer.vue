@@ -19,9 +19,13 @@ export default {
   },
   data() {
     return {
-      glbPath: 'http://127.0.0.1:8000/api/glb',
-      usdzPath: ' http://127.0.0.1:8000/api/usdz',
+      glbPath: 'http://127.0.0.1:8000/api/glb/',
+      usdzPath: 'http://127.0.0.1:8000/api/usdz/',
     }
+  },
+  created() {
+    this.glbPath = this.glbPath + this.$route.query.productId
+    this.usdzPath = this.usdzPath + this.$route.query.productId
   }
 }
 </script>

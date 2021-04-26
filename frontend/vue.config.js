@@ -1,4 +1,5 @@
 module.exports = {
+    runtimeCompiler: true,
     pwa: {
         workboxOptions: {
             //skipWaiting: true,
@@ -7,11 +8,11 @@ module.exports = {
                 urlPattern: new RegExp('^http://127.0.0.1:8000/api/products'),
                 handler: 'NetworkFirst',
                 method: 'GET',
-                    options: {
-                        cacheName: 'RuleStore-cache'
-                    }
+                options: {
+                    cacheName: 'RuleStore-cache'
+                }
             },
-        ]
+            ]
         }
     }
 }

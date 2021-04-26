@@ -32,5 +32,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/glb', [ProductController::class, 'getGlb']);
-Route::get('/usdz', [ProductController::class, 'getUsdz']);
+Route::get('/glb/{productId}', [ProductController::class, 'getGlb']);
+Route::get('/usdz/{productId}', [ProductController::class, 'getUsdz']);
