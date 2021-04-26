@@ -3,7 +3,7 @@
     <div class="row">
 
 
-      <div class="card col-md-3  offset-1 mb-4" style="width: 18rem;" v-for="product in products">
+      <div class="card col-md-3  offset-1 mb-4" style="width: 18rem;" v-for="product in products" :key="product.productId">
         <img class="card-img-top mt-1" src="../assets/img/product_img.png" width="5px" height="400px"
              alt="Card image cap">
         <div class="card-body">
