@@ -40,8 +40,8 @@ export default {
   data() {
     return {
       products: null,
-      glbPath: 'http://127.0.0.1:8000/api/glb',
-      usdzPath: 'http://127.0.0.1:8000/api/usdz',
+      glbPath: 'http://127.0.0.1:8000/api/glb/1',
+      usdzPath: 'http://127.0.0.1:8000/api/usdz/1',
     }
   },
 }
