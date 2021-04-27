@@ -23,9 +23,9 @@ class Products extends Migration
             $table->integer('width');
             $table->integer('outletHeight');
             $table->decimal('volume');
-            $table->decimal('contents');
+            $table->string('contents')->nullable();
             $table->integer('bottomConeSlope');
-            $table->boolean('supplyAir');
+            $table->string('supplyAir')->nullable();
             $table->decimal('price');
         });
     }
