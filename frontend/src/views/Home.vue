@@ -3,14 +3,15 @@
     <div class="col-md-12">
       <div class="jumbotron">
         <div class="row">
-          <div class="col-md-4 offset-1">
-            <h1 style="text-align: left">Lorem ipsum dolor sit amet</h1>
+          <div class="col-md-4 offset-md-2" id="jumbplacement">
+            <h1 style="text-align: left">Skab en totaloplevelse med AR</h1>
             <hr class="my-4">
-            <p style="text-align: left" id="subhead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-              sagittis posuere ultricies.</p>
-            <button type="button" class="btn btn-success btn-lg mt-3" style="float: left">Kontakt os nu!</button>
+            <p style="text-align: left" id="subhead">Giv kunderne en ny måde at opleve dine produkter på,
+              når du føjer Augmented Reality (AR) til din webshop.
+            </p>
+            <button type="button" class="btn btn-success btn-lg mt-3" style="float: left">Oplev det herunder</button>
           </div>
-          <div class="col-md-3 offset-2">
+          <div class="col-md-3" id="mvplacement">
             <model-viewer id="modelViewer" v-bind:src="glbPath"
                           alt="A 3D model of an astronaut"
                           auto-rotate
@@ -47,6 +48,23 @@ export default {
 }
 </script>
 <style>
+#jumbplacement {
+  padding: 50px 0px 0px 30px;
+}
+
+#mvplacement {
+  margin-left: 75px;
+}
+
+@media (max-width: 768px) {
+  #mvplacement {
+    margin: 0px;
+  }
+  #jumbplacement {
+    padding: 0px;
+  }
+}
+
 .jumbotron {
   background-color: white;
 }
