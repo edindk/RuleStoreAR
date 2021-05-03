@@ -48,6 +48,7 @@ export default {
       show: false
     }
   },
+  //Hejsa
   created() {
     this.getProducts()
   },
