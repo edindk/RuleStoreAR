@@ -3,7 +3,8 @@
     <div class="row">
 
 
-      <div class="card col-md-3  offset-1 mb-4" style="width: 18rem;" v-for="product in products" :key="product.productId">
+      <div class="card col-md-3  offset-1 mb-4" style="width: 18rem;" v-for="product in products"
+           :key="product.productId">
         <img class="card-img-top mt-1" src="../assets/img/product_img.png" width="5px" height="400px"
              alt="Card image cap">
         <div class="card-body">
@@ -20,8 +21,9 @@
           <p class="card-text mb-0 text-left">Indblæsning: {{ product.supplyAir }}</p>
           <h4 class="card-text mt-3 text-left">Pris: {{ product.price }}</h4>
           <a href="#" class="btn btn-success mt-3">Føj til tilbud</a>
-          <vue-qrcode :value="product.path" :options="{ width: 100 }" style="float: right" id="qrCode"></vue-qrcode>
-          <a :href="product.path" class="btn btn-primary mt-3 ml-2" id="arBtn" >Se i AR</a>
+          <a class="btn btn-primary mt-3 ml-2" v-on:click="showArCard">Se i AR</a>
+          <ar-card :tempPath="product.path" v-bind:tempShow="show"></ar-card>
+          <a :href="product.path" class="btn btn-primary mt-3 ml-2" id="arBtn">Se i AR</a>
         </div>
       </div>
 
@@ -32,15 +34,18 @@
 
 <script>
 import VueQrcode from '@chenfengyuan/vue-qrcode';
+import ArCard from "@/components/ArCard";
 
 export default {
   name: "ProductCarousel",
   components: {
-    VueQrcode
+    VueQrcode,
+    ArCard
   },
   data() {
     return {
-      products: null
+      products: null,
+      show: false
     }
   },
   created() {
@@ -56,21 +61,44 @@ export default {
       }
       console.log(this.products)
     },
+    showArCard() {
+      this.show = true
+      console.log(this.show)
+    }
   }
 }
 </script>
 
 <style scoped>
 @media screen and (min-width: 0px) and (max-width: 400px) {
-  #qrCode{ display: block; }  /* show it on larger screens */
+  #qrCode {
+    display: block;
+  }
+
+  /* show it on larger screens */
 }
+
 @media screen and (min-width: 0px) and (max-width: 1024px) {
-  #qrCode{ display: none; }   /* hide it on smaller screens */
+  #qrCode {
+    display: none;
+  }
+
+  /* hide it on smaller screens */
 }
+
 @media screen and (min-width: 0px) {
-  #arBtn{ display: block; }  /* show it on smaller screens */
+  #arBtn {
+    display: block;
+  }
+
+  /* show it on smaller screens */
 }
-@media screen and (min-width: 1025px){
-  #arBtn{ display: none; }   /* hide it on larger screens */
+
+@media screen and (min-width: 1025px) {
+  #arBtn {
+    display: none;
+  }
+
+  /* hide it on larger screens */
 }
 </style>
