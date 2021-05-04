@@ -96,7 +96,7 @@ ul li a {
     left: 0px;
     padding: 10px 15px 15px 15px;
     width: 100%;
-    height: 12%;
+    height: auto;
   }
 
   .navbar-collapse.collapsing {
