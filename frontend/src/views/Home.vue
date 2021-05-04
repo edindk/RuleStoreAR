@@ -52,7 +52,6 @@ export default {
   width: 400px;
   height: 500px;
 }
-
 #subhead {
   font-size: 24px;
 }

@@ -1,12 +1,12 @@
 <template>
   <div class="container">
     <div class="row">
-
-
       <div class="card col-md-3  offset-1 mb-4" style="width: 18rem;" v-for="product in products"
            :key="product.productId">
-        <img class="card-img-top mt-1" src="../assets/img/product_img.png" width="5px" height="400px"
-             alt="Card image cap">
+        <div class="box">
+          <img class="card-img-top mt-1" :src="require(`@/assets/img/product_img${product.productId}.png`)"
+               alt="Card image cap">
+        </div>
         <div class="card-body">
           <h5 class="card-title text-left">{{ product.type }}</h5>
           <p class="card-text mb-0 text-left">Varenummer: {{ product.itemNumber }}</p>
@@ -74,11 +74,10 @@ export default {
     showArCard(productId) {
       for (const productKey in this.products) {
         if (this.products[productKey].productId == productId) {
-          if(this.products[productKey].showQr == false)
-          {
+          if (this.products[productKey].showQr == false) {
             this.products[productKey].showQr = true;
           } else {
-              this.products[productKey].showQr = false;
+            this.products[productKey].showQr = false;
           }
         }
       }
@@ -89,26 +88,37 @@ export default {
 </script>
 
 <style scoped>
+.box {
+  width: 100%;
+  height: 200px;
+}
+
+img {
+  width: 45%;
+  height: 100%;
+}
+
 @media screen and (min-width: 1025px) {
   #qrCode {
     display: inline-block;
   }
+
   #arBtn {
     display: none;
   }
-
 }
 
 @media screen and (max-width: 1024px) {
   #qrCode {
     display: none;
   }
+
   #arBtn {
-    display:  inline-block;
+    display: inline-block;
   }
 }
 
-#arCard{
+#arCard {
   position: absolute;
   left: 70px;
   top: 540px;
