@@ -29,14 +29,12 @@
                     v-on:click="showArCard(product.productId)">&times;</span>
             </button>
             <div class="card-body">
-              <h5 class="card-title">QR</h5>
-              <vue-qrcode :value="product.path" :options="{ width: 100 }"></vue-qrcode>
+              <h5>QR</h5>
+              <vue-qrcode :value="product.path" :options="{ width: 180}"></vue-qrcode>
             </div>
           </div>
         </div>
       </div>
-
-
     </div>
   </div>
 </template>
@@ -120,9 +118,10 @@ img {
 
 #arCard {
   position: absolute;
-  left: 70px;
-  top: 540px;
-  width: 80px;
+  left: 130px;
+  top: 610px;
+  width: 240px !important;
+  height: 270px !important;
 }
 
 </style>
