@@ -4,8 +4,9 @@
 
 
       <div class="card col-md-3  offset-1 mb-4" style="width: 18rem;" v-for="product in products" :key="product.productId">
-        <img class="card-img-top mt-1" src="../assets/img/product_img.png" width="5px" height="400px"
-             alt="Card image cap">
+        <div class="box">
+          <img class="card-img-top mt-1" :src="require(`@/assets/img/product_img${product.productId}.png`)" alt="Card image cap">
+        </div>
         <div class="card-body">
           <h5 class="card-title text-left">{{ product.type }}</h5>
           <p class="card-text mb-0 text-left">Varenummer: {{ product.itemNumber }}</p>
@@ -61,6 +62,16 @@ export default {
 </script>
 
 <style scoped>
+.box {
+  width: 100%;
+  height: 200px;
+}
+
+img {
+  width: 45%;
+  height: 100%;
+}
+
 @media screen and (min-width: 0px) and (max-width: 400px) {
   #qrCode{ display: block; }  /* show it on larger screens */
 }
