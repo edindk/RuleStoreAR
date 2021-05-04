@@ -20,10 +20,19 @@
           <p class="card-text mb-0 text-left">Bundkegle hældning: {{ product.bottomConeSlope }}</p>
           <p class="card-text mb-0 text-left">Indblæsning: {{ product.supplyAir }}</p>
           <h4 class="card-text mt-3 text-left">Pris: {{ product.price }}</h4>
-          <a href="#" class="btn btn-success mt-3">Føj til tilbud</a>
-          <a class="btn btn-primary mt-3 ml-2" v-on:click="showArCard">Se i AR</a>
-          <ar-card :tempPath="product.path" v-bind:tempShow="show"></ar-card>
-          <a :href="product.path" class="btn btn-primary mt-3 ml-2" id="arBtn">Se i AR</a>
+          <a class="btn btn-success mt-3">Føj til tilbud</a>
+          <a class="btn btn-primary mt-3 ml-2" v-on:click="showArCard(product.productId)" id="qrCode">Se i AR</a>
+          <a class="btn btn-primary mt-3 ml-2" :href="product.path" id="arBtn">Se i AR</a>
+          <div class="card" style="width: 18rem;" v-if="product.showQr" id="arCard">
+            <button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true" style="font-size: 35px; float: left; margin-left: 10px"
+                    v-on:click="showArCard(product.productId)">&times;</span>
+            </button>
+            <div class="card-body">
+              <h5 class="card-title">QR</h5>
+              <vue-qrcode :value="product.path" :options="{ width: 100 }"></vue-qrcode>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -48,7 +57,6 @@ export default {
       show: false
     }
   },
-  //Hejsa
   created() {
     this.getProducts()
   },
@@ -59,47 +67,52 @@ export default {
 
       for (const productKey in this.products) {
         this.products[productKey].path = 'http://localhost:8080/arviewer?productId=' + this.products[productKey].productId
+        this.products[productKey].showQr = false
       }
       console.log(this.products)
     },
-    showArCard() {
-      this.show = true
-      console.log(this.show)
+    showArCard(productId) {
+      for (const productKey in this.products) {
+        if (this.products[productKey].productId == productId) {
+          if(this.products[productKey].showQr == false)
+          {
+            this.products[productKey].showQr = true;
+          } else {
+              this.products[productKey].showQr = false;
+          }
+        }
+      }
+      this.$forceUpdate()
     }
   }
 }
 </script>
 
 <style scoped>
-@media screen and (min-width: 0px) and (max-width: 400px) {
-  #qrCode {
-    display: block;
-  }
-
-  /* show it on larger screens */
-}
-
-@media screen and (min-width: 0px) and (max-width: 1024px) {
-  #qrCode {
-    display: none;
-  }
-
-  /* hide it on smaller screens */
-}
-
-@media screen and (min-width: 0px) {
-  #arBtn {
-    display: block;
-  }
-
-  /* show it on smaller screens */
-}
-
 @media screen and (min-width: 1025px) {
+  #qrCode {
+    display: inline-block;
+  }
   #arBtn {
     display: none;
   }
 
-  /* hide it on larger screens */
 }
+
+@media screen and (max-width: 1024px) {
+  #qrCode {
+    display: none;
+  }
+  #arBtn {
+    display:  inline-block;
+  }
+}
+
+#arCard{
+  position: absolute;
+  left: 70px;
+  top: 540px;
+  width: 80px;
+}
+
 </style>
