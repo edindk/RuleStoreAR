@@ -55,9 +55,11 @@ export default {
 #subhead {
   font-size: 24px;
 }
+
 #wrapper {
   background-color: rgba(223, 226, 230, 0.3);
   width: 100% !important;
   margin-bottom: 10px;
 }
+
 </style>
