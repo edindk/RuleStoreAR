@@ -3,7 +3,7 @@
     <div id="wrapper">
       <div class="container">
         <div class="row">
-          <div class="col-md-6" style="margin-top: 15px">
+          <div class="col-md-6" id="head">
             <h1 style="text-align: left">Skab en totaloplevelse med AR</h1>
             <hr class="my-4">
             <p style="text-align: left" id="subhead">Giv kunderne en ny måde at opleve dine produkter på,
@@ -11,7 +11,7 @@
             </p>
             <button type="button" class="btn btn-success btn-lg mt-3" style="float: left">Oplev det herunder</button>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-5" id="mv">
             <model-viewer id="modelViewer" v-bind:src="glbPath"
                           alt="A 3D model of an astronaut"
                           auto-rotate
@@ -48,6 +48,23 @@ export default {
 }
 </script>
 <style>
+#mv {
+  margin: 30px 0px 0px 40px;
+}
+
+#head {
+  margin: 64px 0px 0px 50px;
+}
+
+@media screen and (max-width: 1200px) {
+  #mv {
+  margin: 0px 0px 0px 0px;
+  }
+  #head {
+    margin: 50px 0px 0px 0px;
+  }
+}
+
 #modelViewer {
   width: 400px;
   height: 500px;
@@ -59,7 +76,7 @@ export default {
 #wrapper {
   background-color: rgba(223, 226, 230, 0.3);
   width: 100% !important;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
 }
 
 </style>

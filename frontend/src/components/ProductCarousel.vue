@@ -1,39 +1,41 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="card col-md-3  offset-1 mb-4" style="width: 18rem;" v-for="product in products"
+      <div class="col-md-4 mb-4" v-for="product in products"
            :key="product.productId">
-        <div class="box">
-          <img class="card-img-top mt-1" :src="require(`@/assets/img/product_img${product.productId}.png`)"
-               alt="Card image cap">
-        </div>
-        <div class="card-body">
-          <h5 class="card-title text-left">{{ product.type }}</h5>
-          <p class="card-text mb-0 text-left">Varenummer: {{ product.itemNumber }}</p>
-          <p class="card-text mb-0 text-left">Model: {{ product.model }}</p>
-          <p class="card-text mb-0 text-left">Højde (mm): {{ product.height }}</p>
-          <p class="card-text mb-0 text-left">Dybde (mm): {{ product.depth }}</p>
-          <p class="card-text mb-0 text-left">Bredde (mm): {{ product.width }}</p>
-          <p class="card-text mb-0 text-left">Udløbshøjde (mm): {{ product.outletHeight }}</p>
-          <p class="card-text mb-0 text-left">Volumen: {{ product.volume }}</p>
-          <p class="card-text mb-0 text-left">Indhold (T): {{ product.contents }}</p>
-          <p class="card-text mb-0 text-left">Bundkegle hældning: {{ product.bottomConeSlope }}</p>
-          <p class="card-text mb-0 text-left">Indblæsning: {{ product.supplyAir }}</p>
-          <h4 class="card-text mt-3 text-left">Pris: {{ product.price }}</h4>
-          <a class="btn btn-success mt-3">Føj til tilbud</a>
-          <a class="btn btn-primary mt-3 ml-2" v-on:click="showArCard(product.productId)" id="qrCode">Se i AR</a>
-          <a class="btn btn-primary mt-3 ml-2" :href="product.path" id="arBtn">Se i AR</a>
-          <div class="card" style="width: 18rem;" v-if="product.showQr" id="arCard">
-            <button type="button" class="close" aria-label="Close">
-              <span aria-hidden="true" style="font-size: 35px; float: left; margin-left: 10px"
-                    v-on:click="showArCard(product.productId)">&times;</span>
-            </button>
-            <div class="card-body">
-              <h5>QR</h5>
-              <vue-qrcode :value="product.path" :options="{ width: 180}"></vue-qrcode>
-            </div>
-          </div>
-        </div>
+           <div class="card">
+              <div class="box">
+                <img class="card-img-top mt-1" :src="require(`@/assets/img/product_img${product.productId}.png`)"
+                  alt="Card image cap">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-left">{{ product.type }}</h5>
+                <p class="card-text mb-0 text-left">Varenummer: {{ product.itemNumber }}</p>
+                <p class="card-text mb-0 text-left">Model: {{ product.model }}</p>
+                <p class="card-text mb-0 text-left">Højde (mm): {{ product.height }}</p>
+                <p class="card-text mb-0 text-left">Dybde (mm): {{ product.depth }}</p>
+                <p class="card-text mb-0 text-left">Bredde (mm): {{ product.width }}</p>
+                <p class="card-text mb-0 text-left">Udløbshøjde (mm): {{ product.outletHeight }}</p>
+                <p class="card-text mb-0 text-left">Volumen: {{ product.volume }}</p>
+                <p class="card-text mb-0 text-left">Indhold (T): {{ product.contents }}</p>
+                <p class="card-text mb-0 text-left">Bundkegle hældning: {{ product.bottomConeSlope }}</p>
+                <p class="card-text mb-0 text-left">Indblæsning: {{ product.supplyAir }}</p>
+                <h4 class="card-text mt-3 text-left">Pris: {{ product.price }}</h4>
+                <a class="btn btn-success mt-3">Føj til tilbud</a>
+                <a class="btn btn-primary mt-3 ml-2" v-on:click="showArCard(product.productId)" id="qrCode">Se i AR</a>
+                <a class="btn btn-primary mt-3 ml-2" :href="product.path" id="arBtn">Se i AR</a>
+                <div class="card" style="width: 18rem;" v-if="product.showQr" id="arCard">
+                  <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true" style="font-size: 35px; float: left; margin-left: 10px"
+                          v-on:click="showArCard(product.productId)">&times;</span>
+                  </button>
+                  <div class="card-body">
+                    <h5 id="qrcodeheader">QR</h5>
+                    <vue-qrcode :value="product.path" :options="{ width: 150}"></vue-qrcode>
+                  </div>
+                </div>
+              </div>
+           </div>
       </div>
     </div>
   </div>
@@ -116,12 +118,16 @@ img {
   }
 }
 
+#qrcodeheader {
+  margin: 0px;
+}
+
 #arCard {
   position: absolute;
-  left: 130px;
-  top: 610px;
-  width: 240px !important;
-  height: 270px !important;
+  left: 150px;
+  top: 430px;
+  width: 220px !important;
+  height: 240px !important;
 }
 
 </style>
