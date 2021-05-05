@@ -27,6 +27,7 @@ class Products extends Migration
             $table->integer('bottomConeSlope');
             $table->string('supplyAir')->nullable();
             $table->decimal('price');
+            $table->boolean('config');
         });
     }
 
