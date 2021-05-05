@@ -14,12 +14,12 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <router-link to="/"><a class="nav-link">Forside</a></router-link>
+              <router-link to="/"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show">Forside</a></router-link>
             </li>
           </ul>
           <ul class="navbar-nav">
             <li v-if="!loggedIn" class="nav-item">
-              <router-link :to="{ name: 'login' }" class="nav-link">Log ind</router-link>
+              <router-link :to="{ name: 'login' }" class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show">Log ind</router-link>
             </li>
             <li v-if="loggedIn" class="nav-item" id="userloggedin">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target">
@@ -32,10 +32,10 @@
               </div>
             </li>
             <li v-if="loggedIn" class="nav-item">
-              <router-link :to="{ name: 'logout' }" class="nav-link" id="logout">Log ud</router-link>
+              <router-link :to="{ name: 'logout' }" class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" id="logout">Log ud</router-link>
             </li>
             <li v-if="!loggedIn" class="nav-item">
-              <router-link :to="{ name: 'register' }" class="nav-link">Tilmeld</router-link>
+              <router-link :to="{ name: 'register' }" class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show">Tilmeld</router-link>
             </li>
           </ul>
         </div>
@@ -81,6 +81,7 @@ ul li a {
   height: 62px;
   background-color: #343a40;
 }
+
 @media (max-width: 768px) {
   .navbar-collapse {
     z-index: 9999;
@@ -101,7 +102,7 @@ ul li a {
     background-color: #343a40;
   }
   .navbar-toggler.collapsed ~ .navbar-collapse {
-    transition: top 500ms ease-in-out;
+    transition: top 400ms ease-in-out;
     background-color: #343a40;
   }
   #menu {

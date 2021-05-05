@@ -122,7 +122,7 @@
   #center {
     max-width: 325px;
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     margin-right: -50%;
     margin: 0;
