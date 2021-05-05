@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4 mb-4" v-for="product in products"
-           :key="product.productId">
+           :key="product.productId" v-if="product.config == 0">
            <div class="card">
               <div class="box">
                 <img class="card-img-top mt-1" :src="require(`@/assets/img/product_img${product.productId}.png`)"

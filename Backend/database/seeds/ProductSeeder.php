@@ -25,11 +25,63 @@ class ProductSeeder extends Seeder
             //'contents' => null,
             'bottomConeSlope' => 45,
             //'supplyAir' => null,
-            'price' => 43.750
+            'price' => 43.750,
+            'config' => false
         ]);
 
         DB::table('products')->insert([
             'productId' => 2,
+            'type' => 'Agrosilo',
+            'itemNumber' => '4.16.7645S',
+            'model' => 'A-300/6-45°',
+            'height' => 4800,
+            'depth' => 3400,
+            'width' => 3000,
+            'outletHeight' => 550,
+            'volume' => 30.51,
+            //'contents' => null,
+            'bottomConeSlope' => 45,
+            //'supplyAir' => null,
+            'price' => 43.750,
+            'config' => true
+        ]);
+
+        DB::table('products')->insert([
+            'productId' => 3,
+            'type' => 'Agrosilo',
+            'itemNumber' => '4.16.7645S',
+            'model' => 'A-300/6-45°',
+            'height' => 4900,
+            'depth' => 3400,
+            'width' => 3000,
+            'outletHeight' => 550,
+            'volume' => 30.51,
+            //'contents' => null,
+            'bottomConeSlope' => 45,
+            //'supplyAir' => null,
+            'price' => 43.750,
+            'config' => true
+        ]);
+
+        DB::table('products')->insert([
+            'productId' => 4,
+            'type' => 'Agrosilo',
+            'itemNumber' => '4.16.7645S',
+            'model' => 'A-300/6-45°',
+            'height' => 5000,
+            'depth' => 3400,
+            'width' => 3000,
+            'outletHeight' => 550,
+            'volume' => 30.51,
+            //'contents' => null,
+            'bottomConeSlope' => 45,
+            //'supplyAir' => null,
+            'price' => 43.750,
+            'config' => true
+        ]);
+
+        DB::table('products')->insert([
+            'productId' => 5,
             'type' => 'Mineralsilo',
             'itemNumber' => '4.93.0194',
             'model' => 'MI-190/4-60°',
@@ -41,11 +93,12 @@ class ProductSeeder extends Seeder
             //'contents' => null,
             'bottomConeSlope' => 60,
             //'supplyAir' => null,
-            'price' => 24.030
+            'price' => 24.030,
+            'config' => false
         ]);
 
         DB::table('products')->insert([
-            'productId' => 3,
+            'productId' => 6,
             'type' => 'U-silo',
             'itemNumber' => '6.05.5647',
             'model' => 'MU-250/16-45°',
@@ -57,7 +110,8 @@ class ProductSeeder extends Seeder
             //'contents' => null,
             'bottomConeSlope' => 45,
             //'supplyAir' => null,
-            'price' => 89.740
+            'price' => 89.740,
+            'config' => false
         ]);
     }
 }
