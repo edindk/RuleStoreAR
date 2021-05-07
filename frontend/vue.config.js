@@ -5,7 +5,7 @@ module.exports = {
             //skipWaiting: true,
             //clientsClaim: true,
             runtimeCaching: [{
-                urlPattern: new RegExp('^http://127.0.0.1:8000/api/products'),
+                urlPattern: new RegExp('^https://rulestorear.dk/api/public/api/products'),
                 handler: 'NetworkFirst',
                 method: 'GET',
                 options: {
@@ -16,3 +16,4 @@ module.exports = {
         }
     }
 }
+

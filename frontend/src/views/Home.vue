@@ -43,8 +43,8 @@ export default {
   data() {
     return {
       products: null,
-      glbPath: "http://127.0.0.1:8000/api/glb/1",
-      usdzPath: "http://127.0.0.1:8000/api/usdz/1",
+      glbPath: "https://rulestorear.dk/api/public/api/glb/1",
+      usdzPath: "http://rulestorear.dk/api/public/api/glb/1/usdz/1",
     };
   },
 };

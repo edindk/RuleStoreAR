@@ -66,7 +66,7 @@ export default {
       this.products = response.data
 
       for (const productKey in this.products) {
-        this.products[productKey].path = 'http://localhost:8080/arviewer?productId=' + this.products[productKey].productId
+        this.products[productKey].path = 'https://rulestorear.dk/#/arviewer?productId=' + this.products[productKey].productId
         this.products[productKey].showQr = false
       }
       console.log(this.products)
